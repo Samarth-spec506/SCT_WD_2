@@ -1,128 +1,87 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Body with gradient background */
 body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
-  font-family: 'Poppins', sans-serif;
-  color: #fff;
-  overflow: hidden;
+  margin: 0;
 }
 
-/* Container with glassmorphism */
+/* Glassmorphism container */
 .container {
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  padding: 40px;
+  backdrop-filter: blur(12px);
+  padding: 30px;
   border-radius: 20px;
   text-align: center;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  width: 350px;
-  animation: fadeIn 1s ease-in-out;
+  width: 400px;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
+/* Title */
 h1 {
   margin-bottom: 20px;
-  font-size: 2rem;
-  letter-spacing: 2px;
-  color: #f1c40f;
-  text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4);
+  font-size: 2.2rem;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
 }
 
-#display {
-  font-size: 3.2rem;
+/* Stopwatch display */
+.display {
+  font-size: 3rem;
+  font-weight: bold;
   margin: 20px 0;
-  font-weight: bold;
-  letter-spacing: 3px;
-  color: #fff;
-  text-shadow: 0px 0px 15px #00ffcc, 0px 0px 25px #00ffcc;
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255,255,255,0.3);
+  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
 }
 
-/* Button Styling */
+/* Buttons */
 .buttons button {
-  padding: 12px 25px;
-  margin: 8px;
+  background: #00c6ff;
   border: none;
-  border-radius: 50px;
-  cursor: pointer;
+  padding: 12px 22px;
+  margin: 10px 8px;
   font-size: 1rem;
-  font-weight: bold;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0px 5px 15px rgba(0,198,255,0.6);
 }
 
-#startStop {
-  background: linear-gradient(135deg, #27ae60, #2ecc71);
-  color: white;
-}
-#reset {
-  background: linear-gradient(135deg, #e74c3c, #c0392b);
-  color: white;
-}
-#lap {
-  background: linear-gradient(135deg, #2980b9, #3498db);
-  color: white;
+.buttons button:hover:not(:disabled) {
+  background: #0072ff;
+  transform: translateY(-2px) scale(1.05);
 }
 
-.buttons button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  opacity: 0.9;
+/* Disabled buttons */
+.buttons button:disabled {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
 }
 
-/* Laps Styling */
-#laps {
-  margin-top: 25px;
+/* Laps */
+ul {
   list-style: none;
   padding: 0;
-  max-height: 200px;
+  margin: 15px 0 0;
+  max-height: 180px;
   overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #00ffcc transparent;
 }
 
-#laps li {
+ul li {
+  background: rgba(255, 255, 255, 0.15);
+  margin: 6px 0;
   padding: 10px;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-  font-size: 1.1rem;
-  color: #ecf0f1;
-  animation: slideIn 0.3s ease;
-}
-
-/* Scrollbar customization */
-#laps::-webkit-scrollbar {
-  width: 6px;
-}
-#laps::-webkit-scrollbar-thumb {
-  background: #00ffcc;
-  border-radius: 10px;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideIn {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-/* Responsive */
-@media screen and (max-width: 400px) {
-  .container {
-    width: 90%;
-    padding: 25px;
-  }
-  #display {
-    font-size: 2.5rem;
-  }
+  border-radius: 8px;
+  font-size: 1rem;
+  text-align: left;
 }
